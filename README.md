@@ -8,13 +8,30 @@ SharedPreferences is stored in an XML file and can be accessed by any component 
 
 Here's an example of how to save and retrieve a String value in SharedPreferences:
 
-val sharedPreferences = getSharedPreferences("MyPref", Context.MODE_PRIVATE)
-```
-// Save data
-val editor = sharedPreferences.edit()
-editor.putString("key", "value")
-editor.apply()
 
-// Retrieve data
-val value = sharedPreferences.getString("key", null)
+```
+// usages
+val TAG ="MainActivity"
+ private val preferenceHelper: IPreferenceHelper by lazy { PreferenceManager(applicationContext) }
+    
+
+        preferenceHelper.setApiKey("367478899780890809")
+        val api_key = preferenceHelper.getApiKey()
+        Log.d(TAG, api_key)
+
+        preferenceHelper.setUserId("111")
+        val user_id = preferenceHelper.getUserId()
+        Log.d(TAG, user_id)
+
+        preferenceHelper.setStr("email", "bijon.bairagi@gmail.com")
+        val email = preferenceHelper.getStr("email")
+        Log.d(TAG, email)
+
+        preferenceHelper.setInt("age", 35)
+        val age = preferenceHelper.getInt("age")
+        Log.d(TAG, age.toString())
+
+        preferenceHelper.setBool("married", true)
+        val married = preferenceHelper.getBool("married")
+        Log.d(TAG, married.toString())
 ```
